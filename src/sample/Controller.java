@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,7 +14,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
+import java.util.Random;
 
 public class Controller {
 
@@ -55,7 +54,6 @@ public class Controller {
 
     @FXML
     private TextField textFieldM;
-
 
     @FXML
     private void startEncryption(ActionEvent event) throws IOException {
@@ -141,5 +139,22 @@ public class Controller {
         if (n.compareTo(TWO) > 0) {
             listPQ.add(n);
         }
+    }
+
+    @FXML
+    private void calculateE() {
+        BigInteger phiN = getPhi();
+        // e must be: 1 < e < phiN
+        // Choose e, such that e should be co-prime. Co-prime means it should not multiply by factors of \phi and also not divide by \phi
+        // Factors of \phi are, 20 = 5 \times 4 = 5 \times 2 \times 2 so e should not multiply by 5 and 2 and should not divide by 20.
+
+        textE.setVisible(true);
+        labelE.setText(e.toString());
+    }
+
+    private BigInteger getPhi() {
+        // phi(n) = (p-1)(q-1)
+        BigInteger phi = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
+        return phi;
     }
 }
