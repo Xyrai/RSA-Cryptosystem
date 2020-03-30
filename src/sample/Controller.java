@@ -20,6 +20,12 @@ public class Controller {
     private Label labelQ;
 
     @FXML
+    private Label labelE;
+
+    @FXML
+    private Label labelTimePQ;
+
+    @FXML
     private void startEncryption(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
         Stage dialogStage = (Stage) source.getScene().getWindow();
@@ -53,9 +59,12 @@ public class Controller {
     private void calculatePQ(ActionEvent event) {
         long startTime = System.currentTimeMillis();
         long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
 
         // examples
         labelP.setText("21412421421");
-        labelQ.setText("52352352333");
+        labelQ.setText("5235235233");
+        labelE.setText("23523121221");
+        labelTimePQ.setText(totalTime + "ms");
     }
 }

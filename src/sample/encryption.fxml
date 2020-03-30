@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,11 +18,11 @@
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="253.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="219.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
   </rowConstraints>
-   <AnchorPane prefHeight="240.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+   <AnchorPane prefHeight="240.0" prefWidth="300.0" GridPane.columnIndex="1">
       <Text fill="WHITE" layoutY="28.2958984375" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="N = " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="257.0009765625" AnchorPane.topAnchor="5.0">
          <font>
             <Font name="Berlin Sans FB" size="26.0" />
@@ -42,7 +41,7 @@
          <Insets top="30.0" />
       </GridPane.margin>
    </AnchorPane>
-   <TextField fx:id="textFieldM" alignment="TOP_LEFT" prefHeight="115.0" prefWidth="300.0" promptText="Enter your message..." GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+   <TextField fx:id="textFieldM" alignment="TOP_LEFT" prefHeight="120.0" prefWidth="300.0" promptText="Enter your message..." GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
       <GridPane.margin>
          <Insets />
       </GridPane.margin>
@@ -70,10 +69,7 @@
          <Insets left="20.0" top="20.0" />
       </GridPane.margin>
    </Button>
-   <Separator prefWidth="200.0" valignment="BOTTOM" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-   <Separator prefWidth="200.0" valignment="BOTTOM" GridPane.valignment="BOTTOM" />
-   <Separator prefWidth="200.0" valignment="BOTTOM" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="P = " GridPane.columnIndex="1">
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="P = " GridPane.columnIndex="1" GridPane.rowIndex="1">
       <font>
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
@@ -81,7 +77,7 @@
          <Insets bottom="50.0" />
       </GridPane.margin>
    </Text>
-   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Q = " GridPane.columnIndex="1">
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Q = " GridPane.columnIndex="1" GridPane.rowIndex="1">
       <font>
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
@@ -89,7 +85,7 @@
          <Insets top="20.0" />
       </GridPane.margin>
    </Text>
-   <Text fill="red" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #23272A;" text="Output" underline="true" GridPane.columnIndex="1" GridPane.valignment="TOP">
+   <Text fill="red" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #23272A;" text="Output" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
       <font>
          <Font name="Berlin Sans FB" size="26.0" />
       </font>
@@ -97,7 +93,7 @@
          <Insets top="20.0" />
       </GridPane.margin>
    </Text>
-   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Amount of time busy finding p and q: " GridPane.columnIndex="1">
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Amount of time busy finding p and q: " GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
@@ -105,7 +101,7 @@
          <Insets top="100.0" />
       </GridPane.margin>
    </Text>
-   <Label fx:id="labelP" textFill="WHITE" GridPane.columnIndex="1">
+   <Label fx:id="labelP" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <GridPane.margin>
          <Insets bottom="55.0" left="40.0" />
       </GridPane.margin>
@@ -113,12 +109,36 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
    </Label>
-   <Label fx:id="labelQ" textFill="WHITE" GridPane.columnIndex="1">
+   <Label fx:id="labelQ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <font>
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
          <Insets left="40.0" top="15.0" />
+      </GridPane.margin>
+   </Label>
+   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="E = " GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets top="100.0" />
+      </GridPane.margin>
+   </Text>
+   <Label fx:id="labelE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets left="40.0" top="100.0" />
+      </GridPane.margin>
+   </Label>
+   <Label fx:id="labelTimePQ" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
+      <GridPane.margin>
+         <Insets left="25.0" />
       </GridPane.margin>
    </Label>
 </GridPane>
