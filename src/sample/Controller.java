@@ -7,12 +7,24 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class Controller {
+
+    private BigInteger p;
+    private BigInteger q;
+    private BigInteger n;
+    private BigInteger e;
+    private BigInteger d;
+    private BigInteger TWO = new BigInteger(("2"));
 
     @FXML
     private Label labelP;
@@ -37,6 +49,12 @@ public class Controller {
 
     @FXML
     private Text textTime;
+
+    @FXML
+    private TextField textFieldN;
+
+    @FXML
+    private TextField textFieldM;
 
 
     @FXML
@@ -70,19 +88,58 @@ public class Controller {
     }
 
     @FXML
-    private void calculatePQ(ActionEvent event) {
+    private void getPQ() {
+        // Check if value N field is empty
+        if (textFieldN.getText().trim().isEmpty() || textFieldN.getText() == null) {
+            return;
+        }
+
+        n = new BigInteger(textFieldN.getText());
+
+        // List to store p and q values
+        List<BigInteger> listPQ = new ArrayList<>();
+
         long startTime = System.currentTimeMillis();
+        calculatePQ(listPQ);
         long endTime = System.currentTimeMillis();
+
+        // Total time spend calculating p and q
         long totalTime = endTime - startTime;
 
-        // init text of step 1
+        // Retrieve p and q for output
+        p = listPQ.get(0);
+        q = listPQ.get(1);
+
+        initStep1Text();
+
+        labelP.setText(p.toString());
+        labelQ.setText(q.toString());
+        labelTimePQ.setText(totalTime + "ms");
+    }
+
+    // Set text of Step 1 output to visible
+    private void initStep1Text() {
         textP.setVisible(true);
         textQ.setVisible(true);
         textTime.setVisible(true);
+    }
 
-        // examples
-        labelP.setText("21412421421");
-        labelQ.setText("5235235233");
-        labelTimePQ.setText(totalTime + "ms");
+    private void calculatePQ(List<BigInteger> listPQ) {
+        // Start the index on 2
+        BigInteger index = new BigInteger(("2"));
+
+        // Loop while n mod i != 0
+        while (n.compareTo(index) > 0) {
+            while (n.mod(index).equals(BigInteger.ZERO)) {
+                // Add p to the list
+                listPQ.add(index);
+                n = n.divide((index));
+            }
+            index = index.add(BigInteger.ONE);
+        }
+        // Add q to the list
+        if (n.compareTo(TWO) > 0) {
+            listPQ.add(n);
+        }
     }
 }

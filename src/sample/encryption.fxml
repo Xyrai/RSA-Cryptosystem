@@ -28,7 +28,7 @@
             <Font name="Berlin Sans FB" size="26.0" />
          </font>
       </Text>
-      <TextField id="textFieldN" layoutX="45.0" layoutY="3.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="105.0" promptText="Enter a N value" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="3.0" />
+      <TextField fx:id="textFieldN" layoutX="45.0" layoutY="3.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="105.0" promptText="Enter a N value" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="3.0" />
       <Text fill="WHITE" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Encryption Message">
          <font>
             <Font name="Berlin Sans FB" size="26.0" />
@@ -46,7 +46,7 @@
          <Insets />
       </GridPane.margin>
    </TextField>
-   <Button fx:id="btnStep1" alignment="CENTER" mnemonicParsing="false" onAction="#calculatePQ" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <Button alignment="CENTER" mnemonicParsing="false" onAction="#getPQ" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <font>
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
