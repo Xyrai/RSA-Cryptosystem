@@ -6,11 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Controller {
+
+    @FXML
+    private Label labelP;
+
+    @FXML
+    private Label labelQ;
 
     @FXML
     private void startEncryption(ActionEvent event) throws IOException {
@@ -40,5 +47,15 @@ public class Controller {
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("main.fxml")));
         dialogStage.setScene(scene);
         dialogStage.show();
+    }
+
+    @FXML
+    private void calculatePQ(ActionEvent event) {
+        long startTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
+
+        // examples
+        labelP.setText("21412421421");
+        labelQ.setText("52352352333");
     }
 }
