@@ -31,4 +31,14 @@ public class Controller {
         dialogStage.setScene(scene);
         dialogStage.show();
     }
+
+    @FXML
+    private void returnHome(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        Stage dialogStage = (Stage) source.getScene().getWindow();
+        dialogStage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("main.fxml")));
+        dialogStage.setScene(scene);
+        dialogStage.show();
+    }
 }
