@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,19 @@ public class Controller {
 
     @FXML
     private Label labelTimePQ;
+
+    @FXML
+    private Text textP;
+
+    @FXML
+    private Text textQ;
+
+    @FXML
+    private Text textE;
+
+    @FXML
+    private Text textTime;
+
 
     @FXML
     private void startEncryption(ActionEvent event) throws IOException {
@@ -61,10 +75,14 @@ public class Controller {
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
 
+        // init text of step 1
+        textP.setVisible(true);
+        textQ.setVisible(true);
+        textTime.setVisible(true);
+
         // examples
         labelP.setText("21412421421");
         labelQ.setText("5235235233");
-        labelE.setText("23523121221");
         labelTimePQ.setText(totalTime + "ms");
     }
 }
