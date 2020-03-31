@@ -18,9 +18,9 @@
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="253.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="242.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="262.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="232.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <AnchorPane prefHeight="240.0" prefWidth="300.0" GridPane.columnIndex="1">
       <Text fill="WHITE" layoutY="28.2958984375" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="N = " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="257.0009765625" AnchorPane.topAnchor="5.0">
@@ -95,7 +95,7 @@
    </Text>
    <Text fx:id="textTime" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Amount of time busy finding p and q: " visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
       <font>
-         <Font name="Berlin Sans FB" size="20.0" />
+         <Font name="Berlin Sans FB" size="19.0" />
       </font>
       <GridPane.margin>
          <Insets top="100.0" />
@@ -122,7 +122,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets top="80.0" />
+         <Insets top="70.0" />
       </GridPane.margin>
    </Text>
    <Label fx:id="labelE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -130,7 +130,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets left="40.0" top="80.0" />
+         <Insets left="40.0" top="70.0" />
       </GridPane.margin>
    </Label>
    <Label fx:id="labelTimePQ" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
@@ -143,12 +143,12 @@
    </Label>
    <Text fx:id="textEncryptedM" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Message after encryption is: " visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
       <font>
-         <Font name="Berlin Sans FB" size="20.0" />
+         <Font name="Berlin Sans FB" size="18.0" />
       </font>
    </Text>
-   <Label fx:id="labelEncryptedM" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+   <Label fx:id="labelEncryptedM" alignment="TOP_LEFT" prefHeight="71.0" prefWidth="300.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
       <font>
-         <Font name="Berlin Sans FB" size="20.0" />
+         <Font name="Berlin Sans FB" size="17.0" />
       </font>
    </Label>
 </GridPane>
