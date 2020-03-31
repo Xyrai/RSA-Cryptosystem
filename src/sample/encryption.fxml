@@ -56,7 +56,7 @@
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
    </Button>
-   <Button id="btnStep3" alignment="CENTER" mnemonicParsing="false" onAction="#startEncryption" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+   <Button id="btnStep3" alignment="CENTER" mnemonicParsing="false" onAction="#encryptM" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 3" GridPane.columnIndex="2" GridPane.rowIndex="2">
       <font>
          <Font name="Berlin Sans FB" size="20.0" />
       </font>

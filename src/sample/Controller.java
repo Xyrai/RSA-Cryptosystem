@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class Controller {
     private BigInteger n;
     private BigInteger e;
     private BigInteger d;
+    private BigInteger phiN;
     private BigInteger TWO = new BigInteger(("2"));
 
     @FXML
@@ -126,24 +128,28 @@ public class Controller {
         // Start the index on 2
         BigInteger index = new BigInteger(("2"));
 
+        // backup of N because this value needs to be used for the encrypted message
+        // otherwise N is a totally different value than p * q
+        BigInteger backupN = n;
+
         // Loop while n mod i != 0
-        while (n.compareTo(index) > 0) {
-            while (n.mod(index).equals(BigInteger.ZERO)) {
+        while (backupN.compareTo(index) > 0) {
+            while (backupN.mod(index).equals(BigInteger.ZERO)) {
                 // Add p to the list
                 listPQ.add(index);
-                n = n.divide((index));
+                backupN = backupN.divide((index));
             }
             index = index.add(BigInteger.ONE);
         }
         // Add q to the list
-        if (n.compareTo(TWO) > 0) {
-            listPQ.add(n);
+        if (backupN.compareTo(TWO) > 0) {
+            listPQ.add(backupN);
         }
     }
 
     @FXML
     private void calculateE() {
-        BigInteger phiN = getPhi();
+        phiN = getPhi();
         // e must be: 1 < e < phiN
         // Choose e, such that e should be co-prime. Co-prime means it should not multiply by factors of \phi and also not divide by \phi
         // Factors of \phi are, 20 = 5 \times 4 = 5 \times 2 \times 2 so e should not multiply by 5 and 2 and should not divide by 20.
@@ -158,6 +164,23 @@ public class Controller {
 
         textE.setVisible(true);
         labelE.setText(e.toString());
+    }
+
+    @FXML
+    private void encryptM() {
+        String message = textFieldM.getText();
+        StringBuilder sb = new StringBuilder();
+        // encoded message
+        byte[] byteValues = message.getBytes();
+
+        for (byte byteValue : byteValues) {
+            BigInteger bigIntegerValue = new BigInteger(Byte.toString(byteValue));
+            bigIntegerValue = bigIntegerValue.modPow(e, n);
+            sb.append(bigIntegerValue.intValue() + ",");
+        }
+
+        // wrong label for now, testing purposes
+        labelE.setText(sb.toString().replaceFirst(".$", ""));
     }
 
     private BigInteger getPhi() {
