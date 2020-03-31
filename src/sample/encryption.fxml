@@ -19,8 +19,8 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="253.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="219.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="242.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <AnchorPane prefHeight="240.0" prefWidth="300.0" GridPane.columnIndex="1">
       <Text fill="WHITE" layoutY="28.2958984375" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="N = " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="257.0009765625" AnchorPane.topAnchor="5.0">
@@ -74,7 +74,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets bottom="50.0" />
+         <Insets bottom="70.0" />
       </GridPane.margin>
    </Text>
    <Text fx:id="textQ" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="q is" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -82,7 +82,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets top="20.0" />
+         <Insets />
       </GridPane.margin>
    </Text>
    <Text fill="red" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #23272A;" text="Output" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -103,7 +103,7 @@
    </Text>
    <Label fx:id="labelP" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <GridPane.margin>
-         <Insets bottom="50.0" left="40.0" />
+         <Insets bottom="70.0" left="40.0" />
       </GridPane.margin>
       <font>
          <Font name="Berlin Sans FB" size="23.0" />
@@ -114,7 +114,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets left="40.0" top="20.0" />
+         <Insets left="40.0" />
       </GridPane.margin>
    </Label>
    <Text fx:id="textE" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="e is" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -122,7 +122,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets top="100.0" />
+         <Insets top="80.0" />
       </GridPane.margin>
    </Text>
    <Label fx:id="labelE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -130,7 +130,7 @@
          <Font name="Berlin Sans FB" size="23.0" />
       </font>
       <GridPane.margin>
-         <Insets left="40.0" top="100.0" />
+         <Insets left="40.0" top="80.0" />
       </GridPane.margin>
    </Label>
    <Label fx:id="labelTimePQ" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
@@ -140,5 +140,15 @@
       <GridPane.margin>
          <Insets left="25.0" />
       </GridPane.margin>
+   </Label>
+   <Text fx:id="textEncryptedM" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Message after encryption is: " visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
+   </Text>
+   <Label fx:id="labelEncryptedM" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
    </Label>
 </GridPane>

@@ -40,6 +40,9 @@ public class Controller {
     private Label labelTimePQ;
 
     @FXML
+    private Label labelEncryptedM;
+
+    @FXML
     private Text textP;
 
     @FXML
@@ -50,6 +53,9 @@ public class Controller {
 
     @FXML
     private Text textTime;
+
+    @FXML
+    private Text textEncryptedM;
 
     @FXML
     private TextField textFieldN;
@@ -180,7 +186,10 @@ public class Controller {
         }
 
         // wrong label for now, testing purposes
-        labelE.setText(sb.toString().replaceFirst(".$", ""));
+        textTime.setVisible(false);
+        labelTimePQ.setVisible(false);
+        textEncryptedM.setVisible(true);
+        labelEncryptedM.setText(sb.toString().replaceFirst(".$", ""));
     }
 
     private BigInteger getPhi() {
