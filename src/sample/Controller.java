@@ -63,6 +63,8 @@ public class Controller {
     @FXML
     private TextField textFieldM;
 
+    // TODO: Add error prevention checks
+
     @FXML
     private void startEncryption(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
@@ -93,6 +95,9 @@ public class Controller {
         dialogStage.show();
     }
 
+    /**
+     * Step 1 - Calculating p and q
+     */
     @FXML
     private void getPQ() {
         // Check if value N field is empty
@@ -123,11 +128,40 @@ public class Controller {
         labelTimePQ.setText(totalTime + "ms");
     }
 
-    // Set text of Step 1 output to visible
+    // Set required text of Step 1 output to visible
     private void initStep1Text() {
         textP.setVisible(true);
         textQ.setVisible(true);
         textTime.setVisible(true);
+        labelTimePQ.setVisible(true);
+
+        textE.setVisible(false);
+        textEncryptedM.setVisible(false);
+
+        labelEncryptedM.setVisible(false);
+        labelE.setVisible(false);
+    }
+
+    // Set required text of Step 2 output to visible
+    private void initStep2Text() {
+        textE.setVisible(true);
+        labelE.setVisible(true);
+
+        textTime.setVisible(false);
+        textEncryptedM.setVisible(false);
+        labelTimePQ.setVisible(false);
+        labelEncryptedM.setVisible(false);
+    }
+
+    // Set required text of Step 3 output to visible
+    private void initStep3Text() {
+        textE.setVisible(true);
+        textEncryptedM.setVisible(true);
+        labelEncryptedM.setVisible(true);
+        labelE.setVisible(true);
+
+        textTime.setVisible(false);
+        labelTimePQ.setVisible(false);
     }
 
     private void calculatePQ(List<BigInteger> listPQ) {
@@ -153,6 +187,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Step 2 - Calculating e
+     */
     @FXML
     private void calculateE() {
         phiN = getPhi();
@@ -160,7 +197,7 @@ public class Controller {
         // Choose e, such that e should be co-prime. Co-prime means it should not multiply by factors of \phi and also not divide by \phi
         // Factors of \phi are, 20 = 5 \times 4 = 5 \times 2 \times 2 so e should not multiply by 5 and 2 and should not divide by 20.
         e = TWO;
-        while (e.compareTo(phiN) == -1) {
+        while (e.compareTo(phiN) < 0) {
             if (e.gcd(phiN).equals(BigInteger.ONE)) {
                 break;
             } else {
@@ -168,10 +205,13 @@ public class Controller {
             }
         }
 
-        textE.setVisible(true);
+        initStep2Text();
         labelE.setText(e.toString());
     }
 
+    /**
+     * Step 3 - Encrypting the message
+     */
     @FXML
     private void encryptM() {
         String message = textFieldM.getText();
@@ -182,19 +222,15 @@ public class Controller {
         for (byte byteValue : byteValues) {
             BigInteger bigIntegerValue = new BigInteger(Byte.toString(byteValue));
             bigIntegerValue = bigIntegerValue.modPow(e, n);
-            sb.append(bigIntegerValue.intValue() + ",");
+            sb.append(bigIntegerValue.intValue()).append(",");
         }
 
-        // wrong label for now, testing purposes
-        textTime.setVisible(false);
-        labelTimePQ.setVisible(false);
-        textEncryptedM.setVisible(true);
+        initStep3Text();
         labelEncryptedM.setText(sb.toString().replaceFirst(".$", ""));
     }
 
     private BigInteger getPhi() {
         // phi(n) = (p-1)(q-1)
-        BigInteger phi = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
-        return phi;
+        return (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
     }
 }
