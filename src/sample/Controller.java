@@ -147,6 +147,14 @@ public class Controller {
         // e must be: 1 < e < phiN
         // Choose e, such that e should be co-prime. Co-prime means it should not multiply by factors of \phi and also not divide by \phi
         // Factors of \phi are, 20 = 5 \times 4 = 5 \times 2 \times 2 so e should not multiply by 5 and 2 and should not divide by 20.
+        e = TWO;
+        while (e.compareTo(phiN) == -1) {
+            if (e.gcd(phiN).equals(BigInteger.ONE)) {
+                break;
+            } else {
+                e = e.add(BigInteger.ONE);
+            }
+        }
 
         textE.setVisible(true);
         labelE.setText(e.toString());
