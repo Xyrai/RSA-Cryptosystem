@@ -192,6 +192,10 @@ public class Controller {
      */
     @FXML
     private void calculateE() {
+        if (p.equals(null) || q.equals(null)) {
+            return;
+        }
+
         phiN = getPhi();
         // e must be: 1 < e < phiN
         // Choose e, such that e should be co-prime. Co-prime means it should not multiply by factors of \phi and also not divide by \phi
@@ -214,6 +218,10 @@ public class Controller {
      */
     @FXML
     private void encryptM() {
+        if (textFieldM.getText().trim().isEmpty() || textFieldM.getText() == null) {
+            return;
+        }
+
         String message = textFieldM.getText();
         StringBuilder sb = new StringBuilder();
         // encoded message
