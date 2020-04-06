@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Controller"
-            prefHeight="600.0" prefWidth="800.0">
-
-</AnchorPane>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2C2F33;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="262.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="232.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <Button alignment="CENTER" mnemonicParsing="false" onAction="#returnHome" prefHeight="36.0" prefWidth="84.0" style="-fx-background-color: #99AAB5; -fx-text-fill: white;" text="Home" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
+      <GridPane.margin>
+         <Insets left="20.0" top="20.0" />
+      </GridPane.margin>
+   </Button>
+   <AnchorPane prefHeight="240.0" prefWidth="300.0" GridPane.columnIndex="1">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <Text id="textNDecryption" fill="WHITE" layoutY="28.2958984375" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="N = " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="257.0009765625" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Berlin Sans FB" size="26.0" />
+         </font>
+      </Text>
+      <TextField id="textFieldNDecryption" fx:id="textFieldNDecryption" layoutX="45.0" layoutY="3.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="105.0" promptText="Enter a N value" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="3.0" />
+      <Text fill="WHITE" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="Message for decryption">
+         <font>
+            <Font name="Berlin Sans FB" size="26.0" />
+         </font>
+      </Text>
+      <Text id="textEDecryption" fill="WHITE" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="E = ">
+         <font>
+            <Font name="Berlin Sans FB" size="26.0" />
+         </font>
+      </Text>
+      <TextField id="textFieldEDecryption" fx:id="textFieldEDecryption" layoutX="45.0" layoutY="45.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="105.0" promptText="Enter an E value" />
+      <TextField fx:id="textFieldCDecryption" alignment="TOP_LEFT" layoutY="116.0" prefHeight="120.0" prefWidth="300.0" promptText="Enter your message..." />
+      <GridPane.margin>
+         <Insets top="30.0" />
+      </GridPane.margin>
+   </AnchorPane>
+   <Text fill="red" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #23272A;" text="Output" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <font>
+         <Font name="Berlin Sans FB" size="26.0" />
+      </font>
+      <GridPane.margin>
+         <Insets top="20.0" />
+      </GridPane.margin>
+   </Text>
+   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
+   </Button>
+   <Button id="btnStep2" alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font>
+   </Button>
+</GridPane>
