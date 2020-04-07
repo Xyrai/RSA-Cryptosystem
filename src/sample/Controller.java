@@ -63,6 +63,15 @@ public class Controller {
     @FXML
     private TextField textFieldM;
 
+    @FXML
+    private TextField textFieldNDecryption;
+
+    @FXML
+    private TextField textFieldEDecryption;
+
+    @FXML
+    private TextField textFieldCDecryption;
+
     // TODO: Add error prevention checks
 
     @FXML
@@ -96,6 +105,7 @@ public class Controller {
     }
 
     /**
+     * Encryption
      * Step 1 - Calculating p and q
      */
     @FXML
@@ -179,7 +189,7 @@ public class Controller {
                 listPQ.add(index);
                 backupN = backupN.divide((index));
             }
-            index = index.add(BigInteger.ONE);
+            index = index.nextProbablePrime();
         }
         // Add q to the list
         if (backupN.compareTo(TWO) > 0) {
@@ -188,6 +198,7 @@ public class Controller {
     }
 
     /**
+     * Encryption
      * Step 2 - Calculating e
      */
     @FXML
@@ -214,6 +225,7 @@ public class Controller {
     }
 
     /**
+     * Encryption
      * Step 3 - Encrypting the message
      */
     @FXML
@@ -240,5 +252,30 @@ public class Controller {
     private BigInteger getPhi() {
         // phi(n) = (p-1)(q-1)
         return (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
+    }
+
+    /**
+     * Decryption
+     * Step 1 - Calculating d
+     */
+    @FXML
+    private void calculateD() {
+        n = new BigInteger(textFieldNDecryption.getText());
+        e = new BigInteger(textFieldEDecryption.getText());
+        List<BigInteger> listPQ = new ArrayList<>();
+
+        calculatePQ(listPQ);
+
+        p = listPQ.get(0);
+        q = listPQ.get(1);
+
+        phiN = getPhi();
+        // Catch error when there is an invalid E
+        try {
+            d = e.modInverse(phiN);
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+            return;
+        }
     }
 }

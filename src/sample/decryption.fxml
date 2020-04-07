@@ -63,7 +63,7 @@
          <Insets top="20.0" />
       </GridPane.margin>
    </Text>
-   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <Button alignment="CENTER" onAction="#calculateD" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <font>
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
