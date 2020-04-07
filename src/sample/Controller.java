@@ -69,9 +69,6 @@ public class Controller {
     private Text textEncryptedM;
 
     @FXML
-    private Text textDecryptedC;
-
-    @FXML
     private TextField textFieldN;
 
     @FXML
