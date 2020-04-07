@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -13,9 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Controller {
 
@@ -46,6 +45,9 @@ public class Controller {
     private Label labelEncryptedM;
 
     @FXML
+    private Label labelDecryptedC;
+
+    @FXML
     private Text textP;
 
     @FXML
@@ -67,6 +69,9 @@ public class Controller {
     private Text textEncryptedM;
 
     @FXML
+    private Text textDecryptedC;
+
+    @FXML
     private TextField textFieldN;
 
     @FXML
@@ -79,7 +84,7 @@ public class Controller {
     private TextField textFieldEDecryption;
 
     @FXML
-    private TextField textFieldCDecryption;
+    private TextArea textAreaCDecryption;
 
     // TODO: Add error prevention checks
 
@@ -258,8 +263,11 @@ public class Controller {
         labelEncryptedM.setText(sb.toString().replaceFirst(".$", ""));
     }
 
+    /**
+     * Calculate phi(n)
+     * phi(n) = (p-1)(q-1)
+     */
     private BigInteger getPhi() {
-        // phi(n) = (p-1)(q-1)
         return (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
     }
 
@@ -270,6 +278,7 @@ public class Controller {
     @FXML
     private void calculateD() {
         // Set text to invisible for Step 1 repetition
+        labelDecryptedC.setVisible(false);
         textD.setVisible(false);
         labelD.setVisible(false);
 
@@ -297,5 +306,29 @@ public class Controller {
         labelD.setVisible(true);
 
         labelD.setText(d.toString());
+    }
+
+    /**
+     * Decryption
+     * Step 2 - Decrypting the message
+     */
+    @FXML
+    private void decryptMessage() {
+        labelDecryptedC.setVisible(true);
+
+        StringBuilder sb = new StringBuilder();
+        String c = textAreaCDecryption.getText();
+        String[] stringValuesArray = c.split(",");
+        byte[] byteValuesArray = new byte[stringValuesArray.length];
+        BigInteger bigIntegerValue;
+
+        for (int i = 0; i < stringValuesArray.length; i++) {
+            bigIntegerValue = new BigInteger(stringValuesArray[i]);
+            bigIntegerValue = bigIntegerValue.modPow(d, n);
+            byteValuesArray[i] = bigIntegerValue.byteValueExact();
+        }
+
+        sb.append("Message after decryption is: ").append(new String(byteValuesArray));
+        labelDecryptedC.setText(sb.toString());
     }
 }
