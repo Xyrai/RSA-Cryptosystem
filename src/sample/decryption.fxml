@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -63,7 +64,7 @@
          <Insets top="20.0" />
       </GridPane.margin>
    </Text>
-   <Button alignment="CENTER" onAction="#calculateD" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <Button alignment="CENTER" mnemonicParsing="false" onAction="#calculateD" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #7289DA; -fx-text-fill: white;" text="Step 1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <font>
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
@@ -73,4 +74,28 @@
          <Font name="Berlin Sans FB" size="20.0" />
       </font>
    </Button>
+   <Text fx:id="textD" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" text="d is" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets bottom="70.0" />
+      </GridPane.margin>
+   </Text>
+   <Label fx:id="labelD" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets bottom="70.0" left="40.0" />
+      </GridPane.margin>
+   </Label>
+   <Text fx:id="textError" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets bottom="70.0" />
+      </GridPane.margin>
+   </Text>
 </GridPane>

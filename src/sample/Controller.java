@@ -37,6 +37,9 @@ public class Controller {
     private Label labelE;
 
     @FXML
+    private Label labelD;
+
+    @FXML
     private Label labelTimePQ;
 
     @FXML
@@ -50,6 +53,12 @@ public class Controller {
 
     @FXML
     private Text textE;
+
+    @FXML
+    private Text textD;
+
+    @FXML
+    private Text textError;
 
     @FXML
     private Text textTime;
@@ -260,8 +269,13 @@ public class Controller {
      */
     @FXML
     private void calculateD() {
+        // Set text to invisible for Step 1 repetition
+        textD.setVisible(false);
+        labelD.setVisible(false);
+
         n = new BigInteger(textFieldNDecryption.getText());
         e = new BigInteger(textFieldEDecryption.getText());
+
         List<BigInteger> listPQ = new ArrayList<>();
 
         calculatePQ(listPQ);
@@ -274,8 +288,14 @@ public class Controller {
         try {
             d = e.modInverse(phiN);
         } catch (ArithmeticException e) {
-            System.out.println(e);
+            textError.setVisible(true);
+            textError.setText("Pick another value for E!");
             return;
         }
+        textError.setVisible(false);
+        textD.setVisible(true);
+        labelD.setVisible(true);
+
+        labelD.setText(d.toString());
     }
 }
