@@ -115,40 +115,6 @@ public class Controller {
         dialogStage.show();
     }
 
-    /**
-     * Encryption
-     * Step 1 - Calculating p and q
-     */
-    @FXML
-    private void getPQ() {
-        // Check if value N field is empty
-        if (textFieldN.getText().trim().isEmpty() || textFieldN.getText() == null) {
-            return;
-        }
-
-        n = new BigInteger(textFieldN.getText());
-
-        // List to store p and q values
-        List<BigInteger> listPQ = new ArrayList<>();
-
-        long startTime = System.currentTimeMillis();
-        calculatePQ(listPQ);
-        long endTime = System.currentTimeMillis();
-
-        // Total time spend calculating p and q
-        long totalTime = endTime - startTime;
-
-        // Retrieve p and q for output
-        p = listPQ.get(0);
-        q = listPQ.get(1);
-
-        initStep1Text();
-
-        labelP.setText(p.toString());
-        labelQ.setText(q.toString());
-        labelTimePQ.setText(totalTime + "ms");
-    }
-
     // Set required text of Step 1 output to visible
     private void initStep1Text() {
         textP.setVisible(true);
@@ -206,6 +172,40 @@ public class Controller {
         if (backupN.compareTo(TWO) > 0) {
             listPQ.add(backupN);
         }
+    }
+
+    /**
+     * Encryption
+     * Step 1 - Calculating p and q
+     */
+    @FXML
+    private void getPQ() {
+        // Check if value N field is empty
+        if (textFieldN.getText().trim().isEmpty() || textFieldN.getText() == null) {
+            return;
+        }
+
+        n = new BigInteger(textFieldN.getText());
+
+        // List to store p and q values
+        List<BigInteger> listPQ = new ArrayList<>();
+
+        long startTime = System.currentTimeMillis();
+        calculatePQ(listPQ);
+        long endTime = System.currentTimeMillis();
+
+        // Total time spend calculating p and q
+        long totalTime = endTime - startTime;
+
+        // Retrieve p and q for output
+        p = listPQ.get(0);
+        q = listPQ.get(1);
+
+        initStep1Text();
+
+        labelP.setText(p.toString());
+        labelQ.setText(q.toString());
+        labelTimePQ.setText(totalTime + "ms");
     }
 
     /**
