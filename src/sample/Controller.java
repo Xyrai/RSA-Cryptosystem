@@ -274,10 +274,15 @@ public class Controller {
      */
     @FXML
     private void calculateD() {
-        // Set text to invisible for Step 1 repetition
-        labelDecryptedC.setVisible(false);
         textD.setVisible(false);
         labelD.setVisible(false);
+        // Set text to invisible for Step 1 repetition
+        if (textFieldNDecryption.getText().trim().isEmpty() || textFieldNDecryption.getText() == null || textFieldEDecryption.getText().trim().isEmpty() || textFieldEDecryption.getText() == null) {
+            labelDecryptedC.setVisible(true);
+            labelDecryptedC.setText("No value given for N or E!");
+            return;
+        }
+        labelDecryptedC.setVisible(false);
 
         n = new BigInteger(textFieldNDecryption.getText());
         e = new BigInteger(textFieldEDecryption.getText());
@@ -312,6 +317,12 @@ public class Controller {
     @FXML
     private void decryptMessage() {
         labelDecryptedC.setVisible(true);
+
+        if (textFieldNDecryption.getText().trim().isEmpty() || textFieldNDecryption.getText() == null || textFieldEDecryption.getText().trim().isEmpty() || textFieldEDecryption.getText() == null) {
+            labelDecryptedC.setVisible(true);
+            labelDecryptedC.setText("No value given for N or E!");
+            return;
+        }
 
         if (textAreaCDecryption.getText().trim().isEmpty() || textAreaCDecryption.getText() == null) {
             labelDecryptedC.setText("No cipher text given!");
