@@ -316,6 +316,11 @@ public class Controller {
     private void decryptMessage() {
         labelDecryptedC.setVisible(true);
 
+        if (textAreaCDecryption.getText().trim().isEmpty() || textAreaCDecryption.getText() == null) {
+            labelDecryptedC.setText("No cipher text given!");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
         String c = textAreaCDecryption.getText();
         String[] stringValuesArray = c.split(",");
