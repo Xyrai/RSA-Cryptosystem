@@ -284,7 +284,7 @@ public class Controller {
         q = listPQ.get(1);
 
         phiN = getPhi();
-        // Catch error when there is an invalid E
+        // Catch error when there is an invalid value for E
         try {
             d = e.modInverse(phiN);
         } catch (ArithmeticException e) {
