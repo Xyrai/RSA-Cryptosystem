@@ -9,7 +9,7 @@ RSA Cryptosystem is a JavaFX application for displaying RSA encryption and decry
 **Step 1: Calculating p and q**
 
 1. Fill in a number for: n
-2. Press on **Step 1** for the result of p and q
+2. Press on **Step 1** for the result of p and q, if nothing happens take another value for n. This could happen because p and q both need to be prime numbers.
 
 **Step 2: Calculating e**
 
