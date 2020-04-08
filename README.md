@@ -5,6 +5,10 @@ RSA Cryptosystem is a JavaFX application for displaying RSA encryption and decry
 
 ## Usage
 *All steps need to be done in order for appropriate results*!
+
+### Start
+To make use of the application clone/install the repository and open the **out/artifacts/pa3_jar** folder.
+Inside you will find **pa3.jar**, run this.
 ### Encryption
 **Step 1: Calculating p and q**
 
