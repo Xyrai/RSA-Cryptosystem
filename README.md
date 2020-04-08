@@ -8,9 +8,8 @@ RSA Cryptosystem is a JavaFX application for displaying RSA encryption and decry
 ### Encryption
 **Step 1: Calculating p and q**
 
-1. Fill in a prime number for: p
-2. Fill in a prime number for: q
-3. Press on **Step 1** for the result of n
+1. Fill in a number for: n
+2. Press on **Step 1** for the result of p and q
 
 **Step 2: Calculating e**
 
