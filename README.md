@@ -1,6 +1,6 @@
 # RSA Cryptosystem
 
-RSA Cryptosystem is a JavaFX application for displaying encryption and decryption algorithms.
+RSA Cryptosystem is a JavaFX application for displaying RSA encryption and decryption algorithms.
 
 
 ## Usage
