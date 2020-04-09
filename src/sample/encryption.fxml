@@ -151,4 +151,12 @@
          <Font name="Berlin Sans FB" size="17.0" />
       </font>
    </Label>
+   <Text fx:id="textEncryptionError" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <font>
+         <Font name="Berlin Sans FB" size="23.0" />
+      </font>
+      <GridPane.margin>
+         <Insets top="60.0" />
+      </GridPane.margin>
+   </Text>
 </GridPane>

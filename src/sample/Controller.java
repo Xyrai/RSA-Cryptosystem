@@ -83,8 +83,6 @@ public class Controller {
     @FXML
     private TextArea textAreaCDecryption;
 
-    // TODO: Add error prevention checks
-
     @FXML
     private void startEncryption(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
