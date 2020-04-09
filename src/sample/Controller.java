@@ -155,22 +155,21 @@ public class Controller {
         // Start the index on 2
         BigInteger index = new BigInteger(("2"));
 
-        // backup of N because this value needs to be used for the encrypted message
-        // otherwise N is a totally different value than p * q
-        BigInteger backupN = n;
+        BigInteger q = n;
 
         // Loop while n mod i != 0
-        while (backupN.compareTo(index) > 0) {
-            while (backupN.mod(index).equals(BigInteger.ZERO)) {
+        while (q.compareTo(index) > 0) {
+            while (q.mod(index).equals(BigInteger.ZERO)) {
                 // Add p to the list
                 listPQ.add(index);
-                backupN = backupN.divide((index));
+                //  calculate q, q = n / p
+                q = q.divide((index));
             }
             index = index.nextProbablePrime();
         }
-        // Add q to the list
-        if (backupN.compareTo(TWO) > 0) {
-            listPQ.add(backupN);
+        // Add q to the list if value of q is bigger than 2
+        if (q.compareTo(TWO) > 0) {
+            listPQ.add(q);
         }
     }
 
