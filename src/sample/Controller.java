@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -255,6 +257,17 @@ public class Controller {
 
         initStep3Text();
         labelEncryptedM.setText(sb.toString().replaceFirst(".$", ""));
+    }
+
+    /**
+     * Copy the output of Step 3 (Encrypted Message)
+     */
+    @FXML
+    private void copyOutputToClipboard() {
+        Clipboard clipboard = Clipboard.getSystemClipboard();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(labelEncryptedM.getText());
+        clipboard.setContent(content);
     }
 
     /**
