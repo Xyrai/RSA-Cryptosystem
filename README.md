@@ -39,3 +39,11 @@ Inside you will find **pa3.jar**, run this.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+## Exceptions
+**Exception #1**
+If, during the encryption phase, you enter for example n = 256, you get a p and q that are both two. This is obviously not true, but the reason we get these numbers is that 2  ×  2  ×  2  ×  2  ×  2  ×  2  ×  2  ×  2 = 256, those are the prime factors for the value of n. This means that these values are not really incorrect, but actually a small piece of a larger picture.
+
+**Exception #2**
+Another error could occur when the user uses a prime number for n on the Encryption screen during Step 1. This will be an incorrect value since factoring 2 primes (p and q) cannot result into a prime number, but in a semiprime. If this error occurs, there will be no p or q displayed.
